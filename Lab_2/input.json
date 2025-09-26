@@ -1,0 +1,117 @@
+[
+    {
+        "action": "CreatePort",
+        "data": {
+            "latitude": 40.71,
+            "longitude": -74.01
+        }
+    },
+    {
+        "action": "CreatePort",
+        "data": {
+            "latitude": 40.05,
+            "longitude": -95.24
+        }
+    },
+    {
+        "action": "CreateContainer",
+        "data": {
+            "weight": 2500,
+            "type_char": null,
+            "port_id": 1
+        }
+    },
+    {
+        "action": "CreateContainer",
+        "data": {
+            "weight": 5000,
+            "type_char": null,
+            "port_id": 1
+        }
+    },
+    {
+        "action": "CreateContainer",
+        "data": {
+            "weight": 1000,
+            "type_char": "R",
+            "port_id": 1
+        }
+    },
+    {
+        "action": "CreateContainer",
+        "data": {
+            "weight": 6000,
+            "type_char": "L",
+            "port_id": 1
+        }
+    },
+    {
+        "action": "CreateShip",
+        "data": {
+            "port_id": 1,
+            "total_weight_capacity": 20000,
+            "max_all_containers": 10,
+            "max_heavy_containers": 5,
+            "max_refrigerated_containers": 2,
+            "max_liquid_containers": 2,
+            "fuel_consumption_per_km": 0.5,
+            "initial_fuel": 200000.0
+        }
+    },
+    {
+        "action": "LoadContainer",
+        "data": {
+            "ship_id": 7,
+            "container_id": 3
+        }
+    },
+    {
+        "action": "LoadContainer",
+        "data": {
+            "ship_id": 7,
+            "container_id": 5
+        }
+    },
+    {
+        "action": "LoadContainer",
+        "data": {
+            "ship_id": 7,
+            "container_id": 6
+        }
+    },
+    {
+        "action": "RefuelShip",
+        "data": {
+            "ship_id": 7,
+            "amount": 500.0
+        }
+    },
+    {
+        "action": "SailTo",
+        "data": {
+            "ship_id": 7,
+            "destination_port_id": 2
+        }
+    },
+    {
+        "action": "UnloadContainer",
+        "data": {
+            "ship_id": 7,
+            "container_id": 3
+        }
+    },
+    {
+        "action": "UnloadContainer",
+        "data": {
+            "ship_id": 7,
+            "container_id": 5
+        }
+    },
+    {
+        "action": "UnloadContainer",
+        "data": {
+            "ship_id": 7,
+            "container_id": 6
+        }
+    }
+]
