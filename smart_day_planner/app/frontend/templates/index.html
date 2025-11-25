@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Day Planner</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Smart Day Planner</h1>
+            <p class="subtitle">Your AI-powered activity planner based on weather</p>
+        </header>
+
+        <div class="main-content">
+            <section class="weather-card">
+                <h2>Current Weather</h2>
+                <div id="weather-content" class="loading">
+                    <div class="spinner"></div>
+                    <p>Loading weather...</p>
+                </div>
+            </section>
+
+            <section class="plan-card">
+                <div class="plan-header">
+                    <h2>Today's Plan</h2>
+                    <button id="refresh-btn" class="btn btn-primary">
+                        Refresh Plan
+                    </button>
+                </div>
+                <div id="plan-content" class="loading">
+                    <div class="spinner"></div>
+                    <p>Generating plan...</p>
+                </div>
+            </section>
+
+            <section class="preferences-card">
+                <h2>Your Preferences</h2>
+                <div id="preferences-content" class="loading">
+                    <div class="spinner"></div>
+                    <p>Loading preferences...</p>
+                </div>
+                <button id="edit-preferences-btn" class="btn btn-secondary" style="display: none;">
+                    Edit Preferences
+                </button>
+            </section>
+
+            <section class="history-card">
+                <h2>Recent Plans</h2>
+                <div id="history-content" class="loading">
+                    <div class="spinner"></div>
+                    <p>Loading history...</p>
+                </div>
+            </section>
+        </div>
+
+        <div id="preferences-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Edit Preferences</h2>
+                <form id="preferences-form">
+                    <div class="form-group">
+                        <label>Preferred Activity Types:</label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="preferred" value="outdoor"> Outdoor</label>
+                            <label><input type="checkbox" name="preferred" value="indoor"> Indoor</label>
+                            <label><input type="checkbox" name="preferred" value="productive"> Productive</label>
+                            <label><input type="checkbox" name="preferred" value="learning"> Learning</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Avoid Activity Types:</label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="avoid" value="sport"> Sport</label>
+                            <label><input type="checkbox" name="avoid" value="outdoor"> Outdoor</label>
+                            <label><input type="checkbox" name="avoid" value="indoor"> Indoor</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Working Hours:</label>
+                        <div class="time-inputs">
+                            <input type="number" id="work-start" min="0" max="23" placeholder="Start (e.g., 9)">
+                            <span>to</span>
+                            <input type="number" id="work-end" min="0" max="23" placeholder="End (e.g., 17)">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Weekend Mode:</label>
+                        <input type="text" id="weekend-mode" placeholder="e.g., Always relax on Sundays">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Save Preferences</button>
+                </form>
+            </div>
+        </div>
+
+        <footer>
+            <p>Powered by OpenWeatherMap API | Built with FastAPI & Observer Pattern</p>
+        </footer>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

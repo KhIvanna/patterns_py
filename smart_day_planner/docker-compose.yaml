@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: smart_day_planner_app
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env 
+    environment:
+      - MONGO_HOST=mongo  
+    volumes:
+      - ./logs:/app/logs
+    depends_on:
+      - mongo
+    networks:
+      - planner_network
+    restart: unless-stopped
+
+  mongo:
+    image: mongo:7.0
+    container_name: smart_day_planner_mongo
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_DATABASE=smart_planner
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - planner_network
+    restart: unless-stopped
+
+  mongo-express:
+    image: mongo-express:latest
+    container_name: smart_day_planner_mongo_express
+    ports:
+      - "8081:8081"
+    environment:
+      - ME_CONFIG_MONGODB_URL=mongodb://mongo:27017/
+      - ME_CONFIG_BASICAUTH_USERNAME=admin
+      - ME_CONFIG_BASICAUTH_PASSWORD=admin123
+    depends_on:
+      - mongo
+    networks:
+      - planner_network
+    restart: unless-stopped
+
+networks:
+  planner_network:
+    driver: bridge
+
+volumes:
+  mongo_data:

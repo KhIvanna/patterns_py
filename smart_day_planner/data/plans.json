@@ -1,0 +1,30 @@
+[
+  {
+    "date": "2025-11-20",
+    "time_generated": "2025-11-20 20:06:52",
+    "location": "Lviv",
+    "weather": {
+      "condition": "Cloudy",
+      "temperature": 3,
+      "description": "overcast clouds"
+    },
+    "activities": [
+      {
+        "name": "Shopping",
+        "type": "outdoor",
+        "priority": 4
+      },
+      {
+        "name": "Museum Visit",
+        "type": "learning",
+        "priority": 4
+      },
+      {
+        "name": "Light Walk",
+        "type": "outdoor",
+        "priority": 3
+      }
+    ],
+    "user_id": "12345"
+  }
+]
